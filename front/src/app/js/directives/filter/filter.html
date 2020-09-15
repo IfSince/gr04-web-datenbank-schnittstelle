@@ -1,0 +1,150 @@
+<div class="filter-wrapper">
+    <div class="filter-headline">
+        Sortierung
+    </div>
+    <div class="filter-content-horizontal">
+        <div class="custom-select">
+            <select class="sortierung" ng-model="sort">
+              <option value="-number_of_orders" class="select-items">Bestseller</option>
+              <option value="price" class="select-items">Preis: aufsteigend</option>
+              <option value="-price" class="select-items">Preis: absteigend</option>
+              <option value="-average_rating" class="select-items">Bewertungen</option>
+              <option value="creation_date" class="select-items">Neueste</option>
+            </select>
+          </div>
+    </div>
+</div>
+
+<div class="filter-wrapper">
+    <div class="filter-headline">
+        Preis
+    </div>
+    <div class="filter-content-horizontal">
+        <ul>
+            <li>
+                <input type="number" ng-change="setMinCost(minCost)" ng-model="minCost">
+            </li>
+            <li>
+                <label>-</label>
+            </li>
+            <li>
+                <input type="number" ng-change="setMaxCost(maxCost)" ng-model="maxCost">
+            </li>
+            <li>
+                <label>€</label>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="filter-wrapper">
+    <div class="filter-headline">
+        Farbe
+    </div>
+    <div class="filter-content">
+        <ul>
+            <li>
+                <label class="container">
+                    blue
+                    <input type="radio" name="color" ng-change="setColor(color)" ng-model="color" value="Blau">
+                    <span class="checkmark-color blue"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    red
+                    <input type="radio" name="color" ng-change="setColor('Rot')" ng-model="color" value="Rot">
+                    <span class="checkmark-color red"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    green
+                    <input type="radio" name="color" ng-change="setColor('Grün')" ng-model="color" value="Grün">
+                    <span class="checkmark-color green"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    yellow
+                    <input type="radio" name="color" ng-change="setColor('Gelb')" ng-model="color" value="Gelb">
+                    <span class="checkmark-color yellow"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    pink
+                    <input type="radio" name="color" ng-change="setColor('Pink')" ng-model="color" value="Pink">
+                    <span class="checkmark-color pink"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    black
+                    <input type="radio" name="color" ng-change="setColor('Schwarz')" ng-model="color" value="Schwarz">
+                    <span class="checkmark-color black"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    white
+                    <input type="radio" name="color" ng-change="setColor(color)" ng-model="color" value="Weiß">
+                    <span class="checkmark-color white"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    multicolored
+                    <input type="radio" name="color" ng-change="setColor(color)" ng-model="color" value="Multi">
+                    <span class="checkmark-color multicolored"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="filter-wrapper">
+    <div class="filter-headline">
+        Hersteller
+    </div>
+    <div class="filter-content">
+        <ul>
+            <li>
+                <label class="container">
+                    Wisent
+                    <input type="radio" name="manufactorer" ng-change="setManufactorer(manufactorer)" ng-model="manufactorer" value="Wisent">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    Hazet
+                    <input type="radio" name="manufactorer" ng-change="setManufactorer(manufactorer)" ng-model="manufactorer" value="Hazet">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    Gardena
+                    <input type="radio" name="manufactorer" ng-change="setManufactorer(manufactorer)" ng-model="manufactorer" value="Gardena">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    Mojang
+                    <input type="radio" name="manufactorer" ng-change="setManufactorer(manufactorer)" ng-model="manufactorer" value="Mojang">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+            <li>
+                <label class="container">
+                    Alle
+                    <input type="radio" name="manufactorer" ng-change="setManufactorer(manufactorer)" ng-model="manufactorer" value="Alle">
+                    <span class="checkmark"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

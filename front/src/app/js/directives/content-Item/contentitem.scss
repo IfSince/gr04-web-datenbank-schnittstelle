@@ -1,0 +1,91 @@
+@import "../../../scss/colors";
+
+  .ItemPageColumn {
+    float: left;
+    width: 50%;
+  }
+
+  .ItemCard {
+    margin: 10px;
+    text-align: left;
+  }
+
+  .ItemPageImg {
+    width: 90%;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 $gray_transparent;
+  }
+
+  .ItemHeadline {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .ItemCard .price {
+    margin: 50px 0 0 0;
+    color: grey;
+    font-size: 22px;
+  }
+
+  .ItemCard .information {
+    padding: 20px
+  }
+
+  .ItemCard ul li {
+    padding: 2px
+  }
+
+  .ItemCard .description {
+    margin: 50px 0 20px 0;
+  }
+
+  .PageContent {
+    padding: 10px;
+    background-color: white;
+    background-color: $white;
+    text-align: center;
+    color: $black;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .PageColumn {
+    float: left;
+    width: 25%;
+  }
+
+  .Image {
+    position: relative;
+}
+
+  .PageRow:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  // styles the "zum Warenkorb" button
+   button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: $akzentFarbe;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  // styles the star Rating
+  .starRating {
+    float: right;
+  }
+  
+  .starRating .checked {
+    color: $akzentFarbe;
+  }

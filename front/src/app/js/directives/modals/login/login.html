@@ -1,0 +1,35 @@
+<div id="loginModal" class="loginModal" ng-controller="loginController">
+
+  <forgotpassword></forgotpassword>
+  
+    <form class="loginModal-content animate">
+
+      <div class="cartContainer">
+
+        <span onclick="document.getElementById('loginModal').style.display='none'" class="loginClose" title="Close Modal">&times;</span>
+
+        <h1>Login</h1>
+        {{rootUser}}
+        <hr>
+        <div ng-if="rootUser==null">
+          <!-- <label for="uname"><b>E-Mail</b></label> -->
+          <input type="text" placeholder="E-Mail" name="uname" required ng-model="$parent.username">
+
+          <!-- <label for="psw"><b>Passwort</b></label> -->
+          <input type="password" placeholder="Passwort" name="psw" required ng-model="$parent.password">
+
+          <button type="submitBtn" onclick="document.getElementById('loginModal').style.display='none'" ng-click="submitLoginForm(username, password)">Login</button>
+          <label>
+            <input type="checkbox" ng-checked="true" name="remember" ng-model="$parent.remember"> Remember me
+          </label>
+        </div>
+      </div>
+
+      <div ng-if="rootUser==null">
+        <div class="cartContainer login" style="background-color:#f1f1f1">
+          <button type="signUpBtn" onclick="document.getElementById('loginModal').style.display='none'"><a href="#!register">Registrieren</a></button>
+          <span class="psw"><span onclick="document.getElementById('passwordModal').style.display='block'" style="color:dodgerblue; cursor: pointer">Passwort</span> vergessen?</span>
+        </div>
+      </div>
+    </form>
+  </div>

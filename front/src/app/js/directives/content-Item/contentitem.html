@@ -1,0 +1,45 @@
+<div class="PageContent">
+
+    <!-- load the modal to use it later -->
+    <addtocart></addtocart>
+
+    <!-- content of the content Item -->
+    <div class="PageRow">
+        <div class="ItemPageColumn">
+            <div>
+                <div class="Image">
+                    <img class="ItemPageImg" ng-src="/front/src/assets/images/{{item.picture}}" alt="{{item.name}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="ItemPageColumn">
+            <div class="ItemCard">
+                <div class="ItemHeadline"><h2>{{item.name}}</h2></div>
+
+                <div class="starRating">
+                    <span id="star_1" class="fa fa-star checked"></span>
+                    <span id="star_2" class="fa fa-star checked"></span>
+                    <span id="star_3" class="fa fa-star checked"></span>
+                    <span id="star_4" class="fa fa-star"></span>
+                    <span id="star_5" class="fa fa-star"></span>
+                </div>
+
+                <p class="price">{{item.price}} €</p>
+                <ul class="information">
+                    <li>Auf Lager: {{item.numStock}}</li>
+                    <li>Anzahl: {{item.count}}</li>
+                    <li>Gewicht: {{item.weight}}g</li>
+                    <li>Material: {{item.material}}</li>
+                    <li>Farbe: {{item.color}}</li>
+                    <li>Hersteller: {{item.manufactorer_id}}</li>
+                </ul>
+
+                <!-- button to load the modal and add to cart -->
+                <p><button onclick="document.getElementById('addToCartModal').style.display='block'" ng-click="addItem(item.id, item.name, 1, item.price)">zum Warenkorb</button></p>
+               
+                <p class="description">Beschreibung: <br>{{item.description}}</p>
+            </div>
+        </div>
+      </div>
+</div>

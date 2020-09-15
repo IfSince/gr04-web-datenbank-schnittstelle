@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+        <!-- Imports -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-cookies.js"></script>
+    </head>
+    <body ng-app="baufuchs">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- header -->
+        <div class="header">
+            <h1> Baufuchs </h1>
+        </div>
+
+        <!-- horizontal nav-bar -->
+        <div ng-controller="itemfilterController"> <!-- Define Scope for FilterController around menu and ng-view so that fiters can be set from both  -->
+        <div class="menu">
+            <!-- search -->
+            <form class="search">
+                <input type="search-input" name="search" placeholder="Search.." ng-model="searchInput">
+                <button ng-click="setName()"><i class="fa fa-search"></i></button>
+            </form>
+            <!-- link to contentStartPage -->
+            <a href="#!"><i class="fas fa-home"></i> Home</a>
+
+            <!-- Login / Logout -->
+            <div ng-if="user==null">
+                <a class="loginBtn" onclick="document.getElementById('loginModal').style.display='block'">
+                    <i class="fas fa-user"></i> Login
+                </a>
+            </div>
+            <div ng-if="user!=null">
+                <a class="loginBtn" ng-controller="loginController" ng-click="logout()">
+                    <i class="fas fa-user"></i> Logout
+                </a>
+            </div>
+
+            <!-- shopping cart Page -->
+            <a href="#!cart" class="notification">
+                <span><i class="fas fa-shopping-cart"></i> Warenkorb</span>
+                <div ng-if="cart.length>null"><span class="badge">{{cart.length}}</span></div>
+            </a>
+
+            <!-- User profile -->
+            <div ng-if="user!=null">
+                <a href="#!profile" id="avatar-icon"><img src="/front/src/assets/images/avatar-icon.png" alt="profile" height="47"></a>
+            </div>
+        </div>
+
+        <!-- login Modal -->
+            <login></login>
+
+        <!-- dynamic content -->
+        <ng-view></ng-view>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <div>
+                <h1>Kontakt</h1>
+                <p>Baufuchs GmbH</p>
+                <p>Beispielstraße 1</p>
+                <p>23456 Hamburg</p>
+            </div>
+            <div>
+                <h1>Haben Sie Fragen?</h1>
+                <p>KundenService</p>
+                <p>0800 1234 5678</p>
+                <p>kunderservice@baufuchs.de</p>
+            </div>
+            <div>
+                <h1>Social Media</h1>
+                <img src="/front/src/assets/images/facebook.png" alt="Facebook">
+                <img src="/front/src/assets/images/twitter.png" alt="Twitter">
+                <img src="/front/src/assets/images/instagram.png" alt="Instagram">
+            </div>
+        </div>
+
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+
+        <!-- Directives -->
+        <script src="js/directives/content-List/contentlist.js"></script>
+        <script src="js/directives/content-StartPage/contentstartpage.js"></script>
+        <script src="js/directives/content-Item/contentitem.js"></script>
+        <script src="js/directives/filter/filter.js"></script>
+        <script src="js/directives/side-bar/side-bar.js"></script>
+        <script src="js/directives/cart/cart.js"></script>
+        <script src="js/directives/modals/addToCart/addtocart.js"></script>
+        <script src="js/directives/modals/login/login.js"></script>
+        <script src="js/directives/sign-up/signup.js"></script>
+        <script src="js/directives/profile/profile.js"></script>
+        <script src="js/directives/modals/shoppingcart/shoppingcart.js"></script>
+        <script src="js/directives/modals/AGB-Datenschutz/agbdatenschutz.js"></script>
+        <script src="js/directives/modals/forgotPassword/forgotpassword.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/homeController.js"></script>
+        <script src="js/controllers/itemlistController.js"></script>
+        <script src="js/controllers/itemdetailController.js"></script>
+        <script src="js/controllers/loginController.js"></script>
+        <script src="js/controllers/cartController.js"></script>
+        <script src="js/controllers/itemfilterController.js"></script>
+        <script src="js/controllers/registrationController.js"></script>
+        <script src="js/controllers/userController.js"></script>
+
+    </body>
+</html>

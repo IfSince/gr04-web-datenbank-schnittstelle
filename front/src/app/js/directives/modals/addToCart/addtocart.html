@@ -1,0 +1,14 @@
+<!-- Openes on click on the "add to cart" Button -->
+
+<div id="addToCartModal" class="addToCartModal">
+    <span onclick="document.getElementById('addToCartModal').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="addToCartModal-content animate">
+      <div class="cartContainer">
+        <h1>Produkt ist jetzt im Warenkorb.</h1>
+        <div class="clearfix">
+          <button type="button" onclick="document.getElementById('addToCartModal').style.display='none'" class="weiterEinkaufenBtn">Weiter einkaufen</button>
+          <a  href="#!cart"><button type="submit" class="zumWarenkorbBtn">zum Warenkorb</button></a>
+        </div>
+      </div>
+    </form>
+  </div>
