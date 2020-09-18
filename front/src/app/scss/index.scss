@@ -150,6 +150,24 @@ html, body {
     }
 }
 
+//cart notification
+.notification {
+    position: relative;
+
+    .badge {
+        position: absolute;
+        top: -5px;
+        right: 0px;
+        border-radius: 50%;
+        color: $white;
+        background: $akzentFarbe;
+        width: 27px;
+        height: 27px;
+        padding: 1px 0 0 0;
+  }
+
+}
+
 // Responsive Design
 @media screen and (max-width: 700px) {
     .footer, .menu {
@@ -163,20 +181,3 @@ html, body {
         }
     }
 }
-
-//cart notification
-.notification {
-    position: relative;
-  }
-
-  .notification .badge {
-    position: absolute;
-    top: -5px;
-    right: 0px;
-    border-radius: 50%;
-    color: $white;
-    background: $akzentFarbe;
-    width: 27px;
-    height: 27px;
-    padding: 1px 0 0 0;
-  }

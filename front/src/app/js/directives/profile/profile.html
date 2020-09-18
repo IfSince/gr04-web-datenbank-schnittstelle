@@ -1,54 +1,43 @@
-<div class="PageContent">
-        <div class="profileContent">
+<div class="profile-content">
+    <img src="/front/src/assets/images/avatar-icon.png" alt="profile" class="profile-avatar">
 
-            <img src="/front/src/assets/images/avatar-icon.png" alt="profile" class="profile-avatar">
+    <h1>Profil</h1>
+    <hr>
 
-            <h1>Profil</h1>
-            <hr>
+    <div class="profile-details">
+        <div class="profile-details-header">Name</div>
+        <div class="profile-details-content">{{user.first_name + ' ' + user.surname}}</div>
+        <div class="profile-details-header">Straße + Hausnr.</div>
+        <div class="profile-details-content">{{user.street + ' ' + user.house_number}}</div>
+        <div class="profile-details-header">PLZ Stadt, Land</div>
+        <div class="profile-details-content">{{user.post_code + ' ' + user.city + ', ' + user.country}}</div>
+        <div class="profile-details-header">Geburtstag</div>
+        <div class="profile-details-content">{{ user.birthday.split(",").pop().substring(0, 12) }}</div>
+        <div class="profile-details-header">E-Mail</div>
+        <div class="profile-details-content">{{user.email_address}}</div>
+        <div class="profile-details-header">Zahlungsart</div>
+        <div class="profile-details-content">{{user.payment}}</div>
+    </div>
+    <hr>
 
-            <div class="profileLeft">
-                <label class="labelGray" for="Name">Name</label>
-                <label class="labelGray" for="StraßeNr">Straße + Hausnr.</label>
-                <label class="labelGray" for="plzStadtLand">PLZ Stadt, Land</label>
-                <label class="labelGray" for="Geburtstag">Geburtstag</label>
-                <label class="labelGray" for="email">E-mail</label>
-                <label class="labelGray" for="payment">Zahlungsart</label>
+    <div class="order-history-list">
+        <div class="order-history-list-header">
+            <div>Bestelldatum</div>
+            <div>Artikelbezeichnung</span></div>
+            <div>Preis</div>
+            <div>Gesamt</div>
+        </div>
+
+        <div class="order-history-list-row" ng-repeat="order in order_list">
+            <div>{{ order.booking_date.split(",").pop().substring(0, 12) }}</div>
+            <div class="column-left">
+                <div ng-repeat="order_details in order.order">{{order_details.item_name}}</div>
             </div>
-
-            <div class="profileRight">
-                <label class="labelGray" for="Name">{{user.first_name + ' ' + user.surname}}</label>
-                <label class="labelGray" for="StraßeNr">{{user.street + ' ' + user.house_number}}</label>
-                <label class="labelGray" for="plzStadtLand">{{user.post_code + ' ' + user.city + ', ' + user.country}}</label>
-                <label class="labelGray" for="Geburtstag">{{user.birthday}}</label>
-                <label class="labelGray" for="email">{{user.email_address}}</label>
-                <label class="labelGray" for="payment">{{user.payment}}</label>
+            <div class="column-center">
+                <div ng-repeat="order_details in order.order">{{order_details.price | number: 2}} €</div>
             </div>
-
-            <hr>
-
-            <div class="historyContent">
-                <table class="OrderHeadlines">
-                    <tr>
-                        <th>Bestelldatum</th>
-                        <th>Artikelbezeichnung</th>
-                        <th>Preis</th>
-                        <th>Gesamt</th>
-                    </tr>
-                </table>
-                <table class="OrderTable">
-                    <tr ng-repeat="order in order_list">
-                        <td>{{ order.booking_date.split(",").pop().substring(0, 12) }}</td>
-                        <td>
-                            <table class="OrderDetails">
-                                <tr ng-repeat="order_details in order.order">
-                                    <td>{{order_details.item_name}}</td>
-                                    <td>{{order_details.price | number: 2}}€</td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td>{{ getTotal(order.order) | number: 2}} €</td>
-                    </tr>
-                </table>
-            </div>
+            <div>{{ getTotal(order.order) | number: 2}} €</div>
         </div>
     </div>
+
+</div>

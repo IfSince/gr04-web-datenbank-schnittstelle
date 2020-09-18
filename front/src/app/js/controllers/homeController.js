@@ -5,6 +5,8 @@ app.controller( 'homeController',
     const route = 'http://localhost:5000/api/item/list';
     var limit = { limit: 10 };
 
+    $scope.spinner = true;
+
     //Backend Request
     $http.post(route, {headers: {'Content-Type': 'application/json;charset=UTF-8'},
                        data: limit})
@@ -28,6 +30,7 @@ app.controller( 'homeController',
                     }
                 }
             }
+            $scope.spinner = false; //when content is loaded set spinner to false
         }, function errorCallback(response) {
             console.log(response.data);
             alert('In der API ist ein Fehler aufgetreten.');

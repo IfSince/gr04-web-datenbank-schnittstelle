@@ -1,84 +1,125 @@
 @import "../../../scss/colors";
 
-.profileContent {
+.profile-content {
   text-align: center;
-  margin: 20px;
+  margin: 20px 20px 20px 12%;
+  padding-bottom: 20px;
   width: 75%;
-  margin-left: 12%;
-}
 
-.labelGray, .labelWhite{
-  padding: 8px 20px;
-  display: inline-block;
-  border: none;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-}
+  .profile-avatar {
+    height: 200px;
+  }
 
-.labelWhite {
-  background: $white;
-  font-weight: bold;
-}
+  hr {
+    border: 1px solid $lightgray_1;
+    margin: 15px 0;
+    width: 100%;
+  }
 
-.labelGray{
-  background: $lightgray_1;
-}
+  h1 {
+    margin: 5px;
+    text-align: center;
+    font-size: 25px;
+  }
 
-.profileLeft, .profileRight {
-  float: left;
-  margin-bottom: 20px;
-}
+  .profile-details {
+    width: 100%;
+    display: flex;
+    box-shadow: 0 4px 8px 0 $gray_transparent;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #f2f2f2;
+    margin-bottom: 25px;
+    padding: 10px 0;
 
-.profileLeft {
-  width: 30%;
-  font-weight: bold;
-}
+    &-header {
+      text-align: left;
+      flex: 1 0 20%;
+      padding: 5px;
+      margin: 0 10px;
+      font-weight: bold;
+    }
 
-.profileRight {
-  width: 70%;
-}
+    &-content {
+      text-align: left;
+      flex: 1 0 65%;
+      padding: 5px;
+      margin: 0 10px;
+    }
 
-.profile-avatar {
-  height: 200px;
-}
+  } //profile-details
 
-.profileContent hr {
-  border: 1px solid $lightgray_1;
-  margin: 15px 0;
-  width: 100%
-}
 
-.profileContent p, .profileContent h1 {
-  margin: 5px;
-  text-align: center;
-}
+  .order-history-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 $gray_transparent;
+    margin-top: 25px;
 
-.profileContent h1 {
-  font-size: 25px;
-}
+    &-row, &-header {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: white;
+      justify-content: space-around;
+      width: 100%;
+      min-width: 400px;
+      padding: 5px;
 
-.OrderTable, .OrderDetails, .OrderHeadlines {
-  width:100%;
-}
+      //Width of each Column
+      div:nth-child(1) {
+        width: 30%;
+      }
 
-.OrderHeadlines {
-  background-color: $lightgray_1;
-}
+      div:nth-child(2) {
+        width: 40%;
+      }
 
-.historyContent {
-  box-shadow: 0 4px 8px 0 $gray_transparent;
-}
+      div:nth-child(3) {
+        width: 15%;
+      }
 
-.OrderTable tr:nth-child(even) {
-    background-color: $lightgray_1;
-}
+      div:nth-child(4) {
+        width: 15%;
+      }
+    } //order-history-list-row, order-history-list-header
 
-.OrderDetails tr:nth-child(even) {
-  background: transparent;
-}
+    &-header {
+      font-weight: bold;
 
-table {
-  border-spacing: 0px;
-  -webkit-border-vertical-spacing: 5px;
-}
+      div:nth-child(2) {
+        text-align: left;
+      }
+    } //order-history-list-header
+
+    &-row {
+      align-items: center;
+
+      &:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .column {
+        &-left {
+          div {
+            text-align: left;
+            width: 100%;
+          }
+        }
+        &-center {
+          div {
+            text-align: center;
+            width: 100%;
+          }
+        }
+      }
+
+    } //order-history-list-row
+
+  } //order-history-list
+
+} //profile-content

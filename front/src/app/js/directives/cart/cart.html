@@ -1,53 +1,41 @@
-<div class="warenkorb-content">
-        <h2>Warenkorb</h2>
-        <br>
-        <p>Hier finden Sie ihre hinzugefügten Produkte.</p>
-        <br>
-        <table id="warenkorb">
-          <thead>
-            <th style="width:25%">Produkte</th>
-            <th>Anzahl</th>
-            <th>Preis</th>
-            <th>Löschen</th>
-          </thead>
-          <tbody>
-          <tr ng-repeat="item in cart">
-            <td>{{item.name}}</td>
-            <td><input type="number" value="1"></td>
-            <td>{{item.price}}</td>
-            <td><i class="fas fa-trash" ng-click="removeItem(item)"></i></td>
-          </tr>
-        </tbody>
-        </table>
-      <div class="address" ng-if="user" ng-controller="userController">
+<!-- load the modal to use it later -->
+<shoppingcart></shoppingcart>
+<login></login>
 
-        <!-- load the modal to use it later -->
-        <shoppingcart></shoppingcart>
-        <login></login>
+<div class="cart">
+  <h2>Warenkorb</h2>
+  <p>Hier finden Sie ihre hinzugefügten Produkte.</p>
 
-        <br>
-        <label class="labelGray" for="Name">Lieferadresse</label>
-        <br>
-        <label class="labelGray" for="Name">{{user.first_name + ' ' + user.surname}}</label>
-        <br>
-        <label class="labelGray" for="Name">{{user.street + ' ' + user.house_number}}</label>
-        <br>
-        <label class="labelGray" for="Name">{{user.post_code + ' ' + user.city}}</label>
-        <br>
-        <label class="labelGray" for="Name">Das ist Ihre Zahlungsmethode: {{user.payment}}</label>
-        <br>
-        <br>
-      </div>
+  <div class="item-list">
+    <div class="item-list-header">
+      <div>Produkte</div>
+      <div>Anzahl</div>
+      <div>Preis</div>
+      <div>Löschen</div>
+    </div>
 
-      <!-- button to load the modal and add to cart -->
-      <div ng-if="user!=null">
-        <button class="shoppingcartbtn" onclick="document.getElementById('shoppingcart').style.display='block'" ng-click="buy()">Kaufen</button>
-      </div>
+    <div class="item-list-row" ng-repeat="item in cart">
+      <div>{{item.name}}</div>
+      <div><input type="number" value="1"></div>
+      <div>{{item.price}}</div>
+      <div><i class="fas fa-trash" ng-click="removeItem(item)"></i></div>
+    </div>
+  </div>
 
-      <div ng-if="user==null">
-        <button class="shoppingcartbtn" onclick="document.getElementById('loginModal').style.display='block'">Kaufen</button>
-      </div>
+  <div class="address" ng-if="user" ng-controller="userController">
+    <label for="Name">Lieferadresse</label>
+    <label for="Name">{{user.first_name + ' ' + user.surname}}</label>
+    <label for="Name">{{user.street + ' ' + user.house_number}}</label>
+    <label for="Name">{{user.post_code + ' ' + user.city}}</label>
+    <label for="Name">Das ist Ihre Zahlungsmethode: {{user.payment}}</label>
+  </div>
 
-    </article>
+  <!-- button to load the modal and add to cart -->
+  <div ng-if="user!=null">
+    <button onclick="document.getElementById('shoppingcart').style.display='block'" ng-click="buy()">Kaufen</button>
+  </div>
 
-</section>
+  <div ng-if="user==null">
+    <button onclick="document.getElementById('loginModal').style.display='block'">Login</button>
+  </div>
+</div>

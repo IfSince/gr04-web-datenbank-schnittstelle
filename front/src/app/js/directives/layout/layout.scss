@@ -3,7 +3,6 @@
   section {
     display: -webkit-flex;
     display: flex;
-    margin: 3px 0 3px 0;
   }
 
   nav {
@@ -15,6 +14,10 @@
 
   .left {
     border-right: 3px solid $akzentFarbe;
+  }
+
+  .right {
+    border-left: 3px solid $akzentFarbe;
   }
 
   article {
