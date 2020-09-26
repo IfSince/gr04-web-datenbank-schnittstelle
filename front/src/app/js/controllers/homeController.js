@@ -12,24 +12,6 @@ app.controller( 'homeController',
                        data: limit})
         .then(function successCallback(response) {
             $scope.items = response.data;
-            var y = 1;
-            var z = 1;
-            //determine class for each item
-            for (var x = 0; x<$scope.items.item_list.length; x++) {
-                if (y >= 1) {
-                    $scope.items.item_list[x].class = "item-second";
-                    y--;
-                }
-                else if (y == 0) {
-                    $scope.items.item_list[x].class = "item-first";
-                    if (z == 2) {
-                        y = 2;
-                        z = 1;
-                    } else {
-                        z++;
-                    }
-                }
-            }
             $scope.spinner = false; //when content is loaded set spinner to false
         }, function errorCallback(response) {
             console.log(response.data);

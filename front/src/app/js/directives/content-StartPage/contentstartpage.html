@@ -1,10 +1,9 @@
 <div ng-if="spinner" class="spinner">Loading...</div>
 <div ng-if="!spinner"class="item-container" ng-controller="cartController">
-
     <!-- load the modal to use it later -->
     <addtocart></addtocart>
 
-    <div class={{item.class}} ng-repeat="item in items.item_list">
+    <div class=item ng-repeat="item in items.item_list">
         <a href="#!item/{{item.id}}">
             <div class="image-container">
                 <img ng-src="/front/src/assets/images/{{item.picture}}" alt="{{ item.name }}">
@@ -17,7 +16,6 @@
             <h1>{{ item.name }}</h1>
             <p class="price">{{ item.price }} €</p>
         </a>
-
         <!-- button to load the modal and add to cart -->
         <button onclick="document.getElementById('addToCartModal').style.display='block'" ng-click="addItem(item.id, item.name, 1, item.price)">zum Warenkorb</button>
     </div>
