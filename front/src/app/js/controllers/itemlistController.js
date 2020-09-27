@@ -3,6 +3,7 @@ app.controller( 'itemlistController',
 
     //define route
     const route = 'http://localhost:5000/api/item/filter';
+    $scope.spinner = true;
 
     //Backend Request
     $http.post(route, {headers: {'Content-Type': 'application/json;charset=UTF-8'},
@@ -10,7 +11,7 @@ app.controller( 'itemlistController',
                       })
         .then(function successCallback(response) {
                 $scope.items = response.data;
-
+                $scope.spinner = false;
             }, function errorCallback(response) {
                 console.log(response.data);
                 alert('In der API ist ein Fehler aufgetreten.');

@@ -4,13 +4,14 @@ app.controller( 'itemdetailController',
     //define route
     const route = 'http://localhost:5000/api/item/details';
     var requestParams = {item_id: $routeParams.id};
+    $scope.spinner = true;
 
     //Backend Request
     $http.post(route, {headers: {'Content-Type': 'application/json;charset=UTF-8'},
                        data: requestParams})
         .then(function successCallback(response) {
            $scope.item = response.data.item;
-
+           $scope.spinner = false;
         }, function errorCallback(response) {
             console.log(response.data);
             alert('In der API ist ein Fehler aufgetreten.');
